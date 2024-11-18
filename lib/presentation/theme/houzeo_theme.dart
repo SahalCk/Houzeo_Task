@@ -31,8 +31,7 @@ class HouzeoAppTheme {
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-              backgroundColor: seedColor,
-              foregroundColor: seedColor == blackColor
+              backgroundColor: seedColor == blackColor
                   ? lightThmePrimaryColor
                   : darkThmePrimaryColor)),
       floatingActionButtonTheme: FloatingActionButtonThemeData(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:houzeo_app/model/entities/main_screen/bottom_navigation_bar_item_model.dart';
-import 'package:houzeo_app/presentation/features/main_screen/views/controllers/main_screen_controller.dart';
+import 'package:houzeo_app/presentation/features/main_screen/controllers/main_screen_controller.dart';
 import 'package:houzeo_app/presentation/theme/houzeo_theme.dart';
 import 'package:houzeo_app/presentation/theme/theme_mode_controller.dart';
 import 'package:houzeo_app/utils/constants/colors.dart';
