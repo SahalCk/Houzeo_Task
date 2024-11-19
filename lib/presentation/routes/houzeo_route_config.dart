@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:houzeo_app/presentation/features/main_screen/view_contacts_screen/view_contact_profile_screen/edit_contact_screen/views/screens/edit_contact_screen.dart';
+import 'package:houzeo_app/presentation/features/main_screen/view_contacts_screen/add_or_edit_contact_screen/views/screens/add_or_edit_contact_screen.dart';
 import 'package:houzeo_app/presentation/features/main_screen/view_contacts_screen/views/screens/view_contacts_screen.dart';
-import 'package:houzeo_app/presentation/features/main_screen/view_favorite_contacts_screen/view_favorite_contacts_screen.dart';
+import 'package:houzeo_app/presentation/features/main_screen/view_favorite_contacts_screen/views/screens/view_favorite_contacts_screen.dart';
 import 'package:houzeo_app/presentation/features/main_screen/views/screens/main_screen.dart';
 import 'package:houzeo_app/presentation/features/main_screen/view_contacts_screen/view_contact_profile_screen/views/screens/view_contact_profile_screen.dart';
 import 'package:houzeo_app/presentation/routes/houzeo_route_names.dart';
@@ -32,28 +32,28 @@ class HouzeoRouteConfig {
               },
               routes: [
                 GoRoute(
-                    name: HouzeoRouteNames.contactProfileScreen,
-                    path: 'contactProfile',
+                    name: HouzeoRouteNames.addOreditContactScreen,
+                    path: 'addOreditContact/:id',
                     pageBuilder: (context, state) {
+                      final id = state.pathParameters['id']!;
                       return CustomTransitionPage(
-                          child: const ViewContactProfileScreen(),
+                          child: AddOrEditContactScreen(
+                              id: id != 'null' ? int.parse(id) : null),
                           transitionDuration: const Duration(milliseconds: 330),
                           transitionsBuilder:
                               ScreenTransitions().slideTransitionRightToLeft);
-                    },
-                    routes: [
-                      GoRoute(
-                          name: HouzeoRouteNames.editContactScreen,
-                          path: 'editContact',
-                          pageBuilder: (context, state) {
-                            return CustomTransitionPage(
-                                child: const EditContactScreen(),
-                                transitionDuration:
-                                    const Duration(milliseconds: 330),
-                                transitionsBuilder: ScreenTransitions()
-                                    .slideTransitionRightToLeft);
-                          })
-                    ])
+                    }),
+                GoRoute(
+                    name: HouzeoRouteNames.contactProfileScreen,
+                    path: 'contactProfile/:id',
+                    pageBuilder: (context, state) {
+                      final id = state.pathParameters['id'];
+                      return CustomTransitionPage(
+                          child: ViewContactProfileScreen(id: int.parse(id!)),
+                          transitionDuration: const Duration(milliseconds: 330),
+                          transitionsBuilder:
+                              ScreenTransitions().slideTransitionRightToLeft);
+                    })
               ])
         ])
   ]);

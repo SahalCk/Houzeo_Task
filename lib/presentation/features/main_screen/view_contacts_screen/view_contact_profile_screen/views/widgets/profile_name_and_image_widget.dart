@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:houzeo_app/model/entities/main_screen/contact_model.dart';
 import 'package:houzeo_app/utils/constants/colors.dart';
 import 'package:houzeo_app/utils/constants/paddings.dart';
 import 'package:houzeo_app/utils/constants/sized_boxes.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ProfileNameAndImageWidget extends StatelessWidget {
-  const ProfileNameAndImageWidget({
-    super.key,
-  });
+  final ContactModel contactModel;
+  const ProfileNameAndImageWidget({super.key, required this.contactModel});
 
   @override
   Widget build(BuildContext context) {
@@ -19,18 +19,25 @@ class ProfileNameAndImageWidget extends StatelessWidget {
             sizedBoxHeight30,
             CircleAvatar(
               radius: 38.sp,
-              backgroundColor: Colors.red,
-              child: Text(
-                'R',
-                style: TextStyle(
-                    fontSize: 40.sp,
-                    color: lightThemeBackgroundColor,
-                    fontWeight: FontWeight.w400),
-              ),
+              backgroundColor: contactModel.profilePic == null
+                  ? Colors.red
+                  : Colors.transparent,
+              backgroundImage: contactModel.profilePic != null
+                  ? MemoryImage(contactModel.profilePic!)
+                  : null,
+              child: contactModel.profilePic == null
+                  ? Text(
+                      contactModel.firstName[0].toUpperCase(),
+                      style: TextStyle(
+                          fontSize: 40.sp,
+                          color: backgroundColor,
+                          fontWeight: FontWeight.w400),
+                    )
+                  : null,
             ),
             sizedBoxHeight25,
             Text(
-              'Mohammed Sahal',
+              '${contactModel.firstName} ${contactModel.lastName}',
               overflow: TextOverflow.ellipsis,
               style: TextStyle(fontSize: 21.sp),
             ),

@@ -2,47 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:houzeo_app/utils/constants/colors.dart';
 
 class HouzeoAppTheme {
-  static ThemeData getThemeData(Color seedColor) {
-    return ThemeData(
-      colorScheme: ColorScheme.fromSeed(
-          seedColor: seedColor,
-          background: seedColor == blackColor
-              ? lightThemeBackgroundColor
-              : darkThemeBackgroundColor,
-          primary: seedColor,
-          surfaceTint: seedColor == blackColor
-              ? lightThemeBackgroundColor
-              : darkThemeBackgroundColor,
-          secondary: seedColor == blackColor
-              ? lighThemeSecondaryColor
-              : darkThemeSecondaryColor,
-          primaryContainer: seedColor == blackColor
-              ? lighThemeSecondaryColor
-              : darkThemeSecondaryColor,
-          brightness:
-              seedColor == blackColor ? Brightness.light : Brightness.dark,
-          onPrimaryContainer: seedColor == blackColor
-              ? lighThemeSecondaryColor
-              : darkThemeSecondaryColor),
-      appBarTheme: AppBarTheme(
-        backgroundColor: seedColor == blackColor
-            ? lightThemeBackgroundColor
-            : darkThemeBackgroundColor,
-      ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-              backgroundColor: seedColor == blackColor
-                  ? lightThmePrimaryColor
-                  : darkThmePrimaryColor)),
-      floatingActionButtonTheme: FloatingActionButtonThemeData(
-          backgroundColor: seedColor == blackColor
-              ? lightThmePrimaryColor
-              : darkThmePrimaryColor),
-      useMaterial3: true,
-      textTheme: const TextTheme(),
-    );
-  }
+  final _themeData = ThemeData(
+    colorScheme: ColorScheme.fromSeed(
+        seedColor: blackColor,
+        background: backgroundColor,
+        primary: primaryColor,
+        surfaceTint: backgroundColor,
+        secondary: secondaryColor,
+        primaryContainer: secondaryColor,
+        brightness: Brightness.light,
+        onPrimaryContainer: secondaryColor),
+    appBarTheme: const AppBarTheme(backgroundColor: backgroundColor),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+        style: ElevatedButton.styleFrom(backgroundColor: primaryColor)),
+    floatingActionButtonTheme:
+        const FloatingActionButtonThemeData(backgroundColor: primaryColor),
+    dividerColor: dividerColor,
+    useMaterial3: true,
+    textTheme: const TextTheme(),
+  );
 
-  static final lightTheme = getThemeData(blackColor);
-  static final darkTheme = getThemeData(whiteColor);
+  get getThemeData => _themeData;
 }

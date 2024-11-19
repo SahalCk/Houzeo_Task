@@ -14,9 +14,9 @@ class ProfileScreenOptionWidget extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
-              backgroundColor: lightThmePrimaryColor.withOpacity(0.2),
+              backgroundColor: primaryColor.withOpacity(0.15),
               radius: 28,
-              child: Icon(icon, color: lightThemeTextColor, size: 29)),
+              child: Icon(icon, color: primaryColor, size: 29)),
           const SizedBox(height: 5),
           Text(
             title,

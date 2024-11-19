@@ -23,7 +23,14 @@ class ConnectedAppsWidget extends StatelessWidget {
                   left: 20, right: 20, top: 20, bottom: 10),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
-                  color: lighThemeSecondaryColor),
+                  color: cardColor,
+                  boxShadow: [
+                    BoxShadow(
+                        offset: const Offset(1, 1),
+                        blurStyle: BlurStyle.outer,
+                        blurRadius: 3,
+                        color: blackColor.withOpacity(0.15))
+                  ]),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

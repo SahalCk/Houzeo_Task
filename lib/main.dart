@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:houzeo_app/data/data_sources/local_data_source.dart';
 import 'package:houzeo_app/data/data_sources/providers.dart';
 import 'package:houzeo_app/presentation/routes/houzeo_route_config.dart';
-import 'package:houzeo_app/presentation/theme/theme_mode_controller.dart';
+import 'package:houzeo_app/presentation/theme/houzeo_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(ChangeNotifierProvider(
-    create: (context) => ThemeModeController(),
-    child: const HouzeoApp(),
-  ));
+  await HouzeoLocalDBFunctions().openHouzeoLocalDB();
+  runApp(const HouzeoApp());
 }
 
 class HouzeoApp extends StatelessWidget {
@@ -25,7 +24,7 @@ class HouzeoApp extends StatelessWidget {
             return MaterialApp.router(
                 title: 'Houzeo',
                 debugShowCheckedModeBanner: false,
-                theme: Provider.of<ThemeModeController>(context).themeData,
+                theme: HouzeoAppTheme().getThemeData,
                 routerConfig: HouzeoRouteConfig.router);
           });
     });
