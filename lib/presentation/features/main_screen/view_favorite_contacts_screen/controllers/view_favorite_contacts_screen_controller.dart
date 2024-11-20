@@ -1,6 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:houzeo_app/data/data_sources/local_data_source.dart';
 import 'package:houzeo_app/model/entities/main_screen/contact_model.dart';
 import 'package:houzeo_app/presentation/features/main_screen/view_contacts_screen/controllers/view_contacts_screen_controller.dart';
@@ -25,6 +26,10 @@ class ViewFavoriteContactsScreenController with ChangeNotifier {
           favoriteContacts.add(contact);
         }
       }
+      const notFoundSvg =
+          SvgAssetLoader('assets/favorite_contact_not_found.svg');
+      svg.cache.putIfAbsent(
+          notFoundSvg.cacheKey(null), () => notFoundSvg.loadBytes(null));
       isAleradyFetched = true;
     } catch (e) {
       errorSnackBar(context, e.toString());

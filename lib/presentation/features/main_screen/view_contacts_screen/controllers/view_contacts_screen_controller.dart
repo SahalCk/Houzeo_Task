@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:houzeo_app/data/data_sources/local_data_source.dart';
 import 'package:houzeo_app/model/entities/main_screen/contact_model.dart';
 
@@ -28,6 +29,12 @@ class ViewContactsScreenController with ChangeNotifier {
     groupedContacts.forEach((key, value) {
       value.sort((a, b) => a.firstName.compareTo(b.firstName));
     });
+    const notFoundSvg = SvgAssetLoader('assets/contact_not_found.svg');
+    svg.cache.putIfAbsent(
+        notFoundSvg.cacheKey(null), () => notFoundSvg.loadBytes(null));
+    const searchNotFoundSvg = SvgAssetLoader('assets/search_not_found.svg');
+    svg.cache.putIfAbsent(searchNotFoundSvg.cacheKey(null),
+        () => searchNotFoundSvg.loadBytes(null));
     isAlreadyFetched = true;
     return groupedContacts;
   }
