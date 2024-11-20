@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:houzeo_app/model/entities/main_screen/bottom_navigation_bar_item_model.dart';
 import 'package:houzeo_app/presentation/features/main_screen/views/widgets/bottom_navigation_bar_item_widget.dart';
+import 'package:houzeo_app/presentation/features/main_screen/views/widgets/dial_pad_icon_button.dart';
 import 'package:houzeo_app/utils/constants/colors.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -33,6 +34,7 @@ class HouzeoBottomNavigationBarWidget extends StatelessWidget {
                       title: 'Favorites',
                       icon: Icons.star_border,
                       selectedIcon: Icons.star)),
+              const DialPadIconButton(),
               BottomNavigationBarItemWidget(
                   item: BottomNavigationBarItemModel(
                       screenIndex: 1,

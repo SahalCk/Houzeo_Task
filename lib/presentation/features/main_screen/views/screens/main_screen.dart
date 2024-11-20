@@ -5,6 +5,7 @@ import 'package:houzeo_app/presentation/features/main_screen/view_favorite_conta
 import 'package:houzeo_app/presentation/features/main_screen/controllers/main_screen_controller.dart';
 import 'package:houzeo_app/presentation/features/main_screen/views/widgets/bottom_navigation_bar_widget.dart';
 import 'package:houzeo_app/presentation/features/main_screen/views/widgets/search_bar_widget.dart';
+import 'package:houzeo_app/utils/constants/colors.dart';
 import 'package:provider/provider.dart';
 
 class MainScreen extends StatelessWidget {
@@ -17,7 +18,8 @@ class MainScreen extends StatelessWidget {
     return AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.dark.copyWith(
             statusBarColor: Colors.transparent,
-            systemNavigationBarDividerColor: Colors.transparent),
+            systemNavigationBarDividerColor: Colors.transparent,
+            systemNavigationBarColor: backgroundColor),
         child: Scaffold(
           resizeToAvoidBottomInset: false,
           appBar: const SearchBarWidget(),

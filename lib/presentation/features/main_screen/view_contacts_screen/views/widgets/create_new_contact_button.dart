@@ -14,7 +14,7 @@ class CreateNewContactButton extends StatelessWidget {
     return SliverToBoxAdapter(
         child: Padding(
       padding: EdgeInsets.only(
-          left: Adaptive.w(4.5) + 45, bottom: 5, top: 5, right: 10),
+          left: Adaptive.w(4.5) + 35, bottom: 5, top: 5, right: 10),
       child: TextButton(
           onPressed: () {
             context.pushNamed(HouzeoRouteNames.addOreditContactScreen,

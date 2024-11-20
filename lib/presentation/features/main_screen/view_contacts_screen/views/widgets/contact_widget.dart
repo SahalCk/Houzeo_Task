@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:houzeo_app/model/entities/main_screen/contact_model.dart';
+import 'package:houzeo_app/presentation/features/main_screen/dial_pad_screen/views/controller/dial_pad_screen_controller.dart';
+import 'package:houzeo_app/presentation/features/main_screen/view_favorite_contacts_screen/views/widgets/favorite_contact_widget.dart';
 import 'package:houzeo_app/presentation/routes/houzeo_route_names.dart';
 import 'package:houzeo_app/utils/constants/colors.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ContactWidget extends StatelessWidget {
@@ -49,6 +52,13 @@ class ContactWidget extends StatelessWidget {
             style: TextStyle(fontSize: 17.5.sp)),
         subtitle: Text(contact.phoneNumber,
             style: TextStyle(fontSize: 15.sp, color: subTextColor)),
+        trailing: FavoriteWidgetIconButton(
+            icon: Icons.phone,
+            onPressed: () {
+              Provider.of<DialPadScreenController>(context, listen: false)
+                  .makeCall(context, contact.phoneNumber);
+            },
+            color: Colors.green),
       ),
     );
   }

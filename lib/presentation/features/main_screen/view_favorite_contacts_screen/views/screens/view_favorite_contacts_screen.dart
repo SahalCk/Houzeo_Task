@@ -66,7 +66,8 @@ class FavoriteContactsGridViewWidget extends StatelessWidget {
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: 12,
-                            mainAxisSpacing: 12),
+                            mainAxisSpacing: 12,
+                            childAspectRatio: 1 / 1.3),
                     itemBuilder: (context, index) {
                       return FavoriteContactWidget(contact: contacts[index]);
                     },

@@ -22,6 +22,7 @@ class AlphabetOrderListWidget extends StatelessWidget {
     return Padding(
       padding: defaultPadding,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
               padding: EdgeInsets.only(

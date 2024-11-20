@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:houzeo_app/presentation/features/main_screen/dial_pad_screen/views/screens/dial_pad_screen.dart';
 import 'package:houzeo_app/presentation/features/main_screen/view_contacts_screen/add_or_edit_contact_screen/views/screens/add_or_edit_contact_screen.dart';
 import 'package:houzeo_app/presentation/features/main_screen/view_contacts_screen/views/screens/view_contacts_screen.dart';
 import 'package:houzeo_app/presentation/features/main_screen/view_favorite_contacts_screen/views/screens/view_favorite_contacts_screen.dart';
@@ -54,7 +55,17 @@ class HouzeoRouteConfig {
                           transitionsBuilder:
                               ScreenTransitions().slideTransitionRightToLeft);
                     })
-              ])
+              ]),
+          GoRoute(
+              name: HouzeoRouteNames.dialContactScreen,
+              path: 'dial',
+              pageBuilder: (context, state) {
+                return CustomTransitionPage(
+                    child: const DialPadScreen(),
+                    transitionDuration: const Duration(milliseconds: 330),
+                    transitionsBuilder:
+                        ScreenTransitions().slideTransitionBottomToTop);
+              }),
         ])
   ]);
 }
