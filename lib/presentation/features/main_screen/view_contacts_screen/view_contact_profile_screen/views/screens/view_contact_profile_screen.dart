@@ -37,7 +37,7 @@ class _ViewContactProfileScreenState extends State<ViewContactProfileScreen> {
         slivers: [
           ViewProfileScreenAppBarWidget(contact: contact!),
           ProfileNameAndImageWidget(contactModel: contact!),
-          ContactProfileScreenButtonsHeadser(
+          ContactProfileScreenButtonsHeader(
               contactNumber: contact!.phoneNumber),
           ContactInfoWidget(contactNumber: contact!.phoneNumber),
           const ConnectedAppsWidget(),

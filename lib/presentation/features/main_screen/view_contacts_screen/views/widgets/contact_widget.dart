@@ -35,8 +35,9 @@ class ContactWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(3)),
         leading: CircleAvatar(
           radius: 19.5.sp,
-          backgroundColor:
-              contact.profilePic == null ? Colors.red : Colors.transparent,
+          backgroundColor: contact.profilePic == null
+              ? contact.avatarColor!.withOpacity(0.8)
+              : Colors.transparent,
           backgroundImage: contact.profilePic != null
               ? MemoryImage(contact.profilePic!)
               : null,

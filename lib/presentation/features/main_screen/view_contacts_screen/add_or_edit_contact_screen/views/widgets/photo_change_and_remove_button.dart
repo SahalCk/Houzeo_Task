@@ -1,7 +1,5 @@
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:houzeo_app/presentation/features/main_screen/view_contacts_screen/add_or_edit_contact_screen/controllers/add_or_edit_contact_screen_controller.dart';
 import 'package:houzeo_app/presentation/widgets/pick_image_dialogue_widget.dart';
 import 'package:houzeo_app/utils/constants/colors.dart';

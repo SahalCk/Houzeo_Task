@@ -34,7 +34,7 @@ class FavoriteContactWidget extends StatelessWidget {
           children: [
             CircleAvatar(
                 radius: 27.sp,
-                backgroundColor: Colors.red,
+                backgroundColor: contact.avatarColor!.withOpacity(0.8),
                 backgroundImage: contact.profilePic != null
                     ? MemoryImage(contact.profilePic!)
                     : null,

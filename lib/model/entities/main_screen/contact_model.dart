@@ -9,6 +9,7 @@ class ContactModel {
   final String phoneNumber;
   final String? email;
   bool isFavorite;
+  Color? avatarColor;
 
   ContactModel(
       {this.id,
@@ -18,5 +19,6 @@ class ContactModel {
       this.companyName,
       required this.phoneNumber,
       this.email,
-      required this.isFavorite});
+      required this.isFavorite,
+      this.avatarColor});
 }

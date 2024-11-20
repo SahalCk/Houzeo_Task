@@ -73,7 +73,8 @@ class _AddOrEditContactScreenState extends State<AddOrEditContactScreen> {
               child: Column(
                 children: [
                   sizedBoxHeight60,
-                  const AddOrEditProfileScreenCircleAvatarWidget(),
+                  AddOrEditProfileScreenCircleAvatarWidget(
+                      controller: controller, contact: contact),
                   sizedBoxHeight05,
                   PhotoChangeAndRemoveButton(
                       controller: controller,

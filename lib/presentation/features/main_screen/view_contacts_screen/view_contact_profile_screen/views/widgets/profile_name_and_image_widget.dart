@@ -20,7 +20,7 @@ class ProfileNameAndImageWidget extends StatelessWidget {
             CircleAvatar(
               radius: 38.sp,
               backgroundColor: contactModel.profilePic == null
-                  ? Colors.red
+                  ? contactModel.avatarColor!.withOpacity(0.8)
                   : Colors.transparent,
               backgroundImage: contactModel.profilePic != null
                   ? MemoryImage(contactModel.profilePic!)

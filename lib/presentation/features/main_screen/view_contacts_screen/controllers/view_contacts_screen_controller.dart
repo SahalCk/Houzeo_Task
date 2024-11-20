@@ -16,12 +16,14 @@ class ViewContactsScreenController with ChangeNotifier {
       for (var letter in 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')) letter: []
     };
 
-    for (var contact in allContacts) {
-      if (contact.firstName.isNotEmpty) {
-        String firstLetter = contact.firstName[0].toUpperCase();
+    for (var i = 0; i < allContacts.length; i++) {
+      int colorIndex = (i - 1) % colors.length;
+      allContacts[i].avatarColor = colors[colorIndex];
+      if (allContacts[i].firstName.isNotEmpty) {
+        String firstLetter = allContacts[i].firstName[0].toUpperCase();
 
         if (groupedContacts.containsKey(firstLetter)) {
-          groupedContacts[firstLetter]!.add(contact);
+          groupedContacts[firstLetter]!.add(allContacts[i]);
         }
       }
     }
@@ -43,3 +45,14 @@ class ViewContactsScreenController with ChangeNotifier {
     notifyListeners();
   }
 }
+
+List<Color> colors = [
+  const Color.fromARGB(255, 93, 43, 144),
+  const Color.fromARGB(255, 245, 194, 26),
+  const Color.fromARGB(255, 62, 73, 183),
+  const Color.fromARGB(255, 0, 138, 255),
+  const Color.fromARGB(255, 250, 65, 38),
+  const Color.fromARGB(255, 16, 164, 94),
+  const Color.fromARGB(255, 10, 17, 88),
+  const Color.fromARGB(255, 255, 97, 128)
+];

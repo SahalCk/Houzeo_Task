@@ -1,7 +1,6 @@
 // ignore_for_file: no_leading_underscores_for_local_identifiers
 
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:houzeo_app/model/entities/main_screen/contact_model.dart';
 import 'package:houzeo_app/presentation/features/main_screen/view_contacts_screen/controllers/view_contacts_screen_controller.dart';
 import 'package:houzeo_app/presentation/features/main_screen/view_contacts_screen/views/widgets/alphabet_order_list_widget.dart';
