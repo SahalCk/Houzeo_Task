@@ -58,6 +58,7 @@ class _AddOrEditContactScreenState extends State<AddOrEditContactScreen> {
     phoneController.dispose();
     emailController.dispose();
     controller.image = null;
+    controller.tempProfileImagePath = null;
     super.dispose();
   }
 

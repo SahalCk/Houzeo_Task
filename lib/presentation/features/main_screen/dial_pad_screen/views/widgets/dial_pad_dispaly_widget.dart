@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:houzeo_app/utils/constants/colors.dart';
 
 class DialPadDisplayWidget extends StatelessWidget {
   final String phoneNumber;
@@ -16,10 +17,10 @@ class DialPadDisplayWidget extends StatelessWidget {
           Expanded(
             child: Text(
               phoneNumber.isEmpty ? "Enter Number" : phoneNumber,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
               style: const TextStyle(
-                  fontSize: 28,
-                  color: Colors.black87,
-                  fontWeight: FontWeight.w500),
+                  fontSize: 28, color: textColor, fontWeight: FontWeight.w500),
               textAlign: TextAlign.center,
             ),
           ),

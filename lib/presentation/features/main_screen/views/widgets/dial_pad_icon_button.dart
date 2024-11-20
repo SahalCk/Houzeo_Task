@@ -20,10 +20,10 @@ class DialPadIconButton extends StatelessWidget {
           height: 63,
           decoration: BoxDecoration(boxShadow: [
             BoxShadow(
-                offset: const Offset(1, 1),
+                offset: const Offset(0, 0),
                 blurStyle: BlurStyle.outer,
-                blurRadius: 3,
-                color: primaryColor.withOpacity(0.2))
+                blurRadius: 4,
+                color: blackColor.withOpacity(0.2))
           ], color: primaryColor, borderRadius: BorderRadius.circular(100)),
           child:
               const Icon(Icons.dialpad_rounded, color: whiteColor, size: 25)),

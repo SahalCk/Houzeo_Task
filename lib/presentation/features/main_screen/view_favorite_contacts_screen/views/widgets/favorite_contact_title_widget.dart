@@ -11,7 +11,8 @@ class FavoriteContactTitleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: defaultPadding,
-      child: Text('Favorites', style: TextStyle(fontSize: 15.5.sp)),
+      child: Text('Favorites',
+          style: TextStyle(fontSize: 17.sp, fontWeight: FontWeight.w600)),
     );
   }
 }

@@ -23,7 +23,7 @@ class ContactWidget extends StatelessWidget {
                 offset: const Offset(1, 1),
                 blurStyle: BlurStyle.outer,
                 blurRadius: 2,
-                color: blackColor.withOpacity(0.12))
+                color: blackColor.withOpacity(0.14))
           ]),
       child: ListTile(
         contentPadding:

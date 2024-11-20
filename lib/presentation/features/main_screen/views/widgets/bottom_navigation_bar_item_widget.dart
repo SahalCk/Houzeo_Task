@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:houzeo_app/model/entities/main_screen/bottom_navigation_bar_item_model.dart';
 import 'package:houzeo_app/presentation/features/main_screen/controllers/main_screen_controller.dart';
 import 'package:houzeo_app/utils/constants/colors.dart';
@@ -58,7 +57,11 @@ class _BottomNavigationBarItemWidgetState
                         value.currentScreenIndex == widget.item.screenIndex
                             ? widget.item.selectedIcon
                             : widget.item.icon,
-                        size: 21.5.sp),
+                        size: 21.5.sp,
+                        color:
+                            value.currentScreenIndex == widget.item.screenIndex
+                                ? textColor
+                                : subTextColor),
                     const SizedBox(height: 3),
                     Text(widget.item.title,
                         style: TextStyle(

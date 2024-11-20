@@ -53,6 +53,10 @@ class AddOrEditContactScreenController with ChangeNotifier {
 
   Future addContact(BuildContext context, String firstName, String lastName,
       String company, String phone, String email) async {
+    if (phone.isEmpty) {
+      errorSnackBar(context, "Please enter phone number");
+      return;
+    }
     try {
       final contact = ContactModel(
           profilePic: image,
@@ -66,13 +70,8 @@ class AddOrEditContactScreenController with ChangeNotifier {
       if (id != null) {
         successSnackBar(
             context, "$firstName $lastName added to contact successfully");
-        contact.id = id;
         final contactScreenController =
             Provider.of<ViewContactsScreenController>(context, listen: false);
-        contactScreenController.allContacts.add(contact);
-        contactScreenController
-            .groupedContacts[contact.firstName[0].toUpperCase()]!
-            .add(contact);
         contactScreenController.refreshScreen();
         context.pop();
       } else {

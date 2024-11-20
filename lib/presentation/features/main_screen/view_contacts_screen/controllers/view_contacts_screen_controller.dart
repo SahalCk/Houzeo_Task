@@ -42,6 +42,7 @@ class ViewContactsScreenController with ChangeNotifier {
   }
 
   void refreshScreen() {
+    isAlreadyFetched = false;
     notifyListeners();
   }
 }

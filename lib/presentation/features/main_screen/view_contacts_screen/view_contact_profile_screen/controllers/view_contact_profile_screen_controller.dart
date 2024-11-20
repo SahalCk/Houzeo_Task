@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:houzeo_app/data/data_sources/local_data_source.dart';
 import 'package:houzeo_app/model/entities/main_screen/contact_model.dart';
 import 'package:houzeo_app/presentation/features/main_screen/view_contacts_screen/controllers/view_contacts_screen_controller.dart';
+import 'package:houzeo_app/presentation/features/main_screen/view_favorite_contacts_screen/controllers/view_favorite_contacts_screen_controller.dart';
 import 'package:houzeo_app/presentation/widgets/snack_bar_widgets.dart';
 import 'package:provider/provider.dart';
 
@@ -19,6 +20,13 @@ class ViewContactProfileScreenController with ChangeNotifier {
       contactScreenController
           .groupedContacts[contact.firstName[0].toUpperCase()]!
           .remove(contact);
+      final favoriteController =
+          Provider.of<ViewFavoriteContactsScreenController>(context,
+              listen: false);
+      if (favoriteController.favoriteContacts.contains(contact)) {
+        favoriteController.favoriteContacts.remove(contact);
+        favoriteController.refreshScreen();
+      }
       contactScreenController.refreshScreen();
       context.pop();
       context.pop();
