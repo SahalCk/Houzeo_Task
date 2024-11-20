@@ -15,12 +15,11 @@ class DialPadDisplayWidget extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              phoneNumber.isEmpty ? "Enter number" : phoneNumber,
+              phoneNumber.isEmpty ? "Enter Number" : phoneNumber,
               style: const TextStyle(
-                fontSize: 28,
-                color: Colors.black87,
-                fontWeight: FontWeight.w500,
-              ),
+                  fontSize: 28,
+                  color: Colors.black87,
+                  fontWeight: FontWeight.w500),
               textAlign: TextAlign.center,
             ),
           ),
